@@ -26,9 +26,3 @@ class MetricsHub():
             # add email logic here
             return
         print("All pipelines ran successfully")
-
-
-
-
-if __name__ == "__main__":
-    main()

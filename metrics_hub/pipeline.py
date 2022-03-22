@@ -1,44 +1,6 @@
 from abc import ABC, abstractmethod
 
-DUMMY_MAILCHIMP_DATA = [{
-    'id': 1,
-    'name': 'John',
-},
-    {
-    'id': 2,
-    'name': 'Jane',
-},
-    {
-    'id': 3,
-    'name': 'Jack',
-}
-]
-DUMMY_SALESFORCE_DATA = [{
-    'id': 1,
-    'species': 'Dog',
-},
-    {
-    'id': 2,
-    'species': 'Cat',
-},
-    {
-    'id': 3,
-    'species': 'Bird',
-}
-]
-DUMMY_MAILGUN_DATA = [{
-    'id': 1,
-    'brand': 'Samsung',
-},
-    {
-    'id': 2,
-    'brand': 'Apple',
-},
-    {
-    'id': 3,
-    'brand': 'Sony',
-}
-]
+from metrics_hub.dummy_data import DUMMY_MAILCHIMP_DATA, DUMMY_MAILGUN_DATA, DUMMY_SALESFORCE_DATA
 
 
 class Pipeline(ABC):
@@ -46,6 +8,8 @@ class Pipeline(ABC):
     @property
     @abstractmethod
     def name(self):
+        # This is a python/ABC trick to ensure that each subclass has to 
+        # implement a name property
         pass
 
     @abstractmethod
