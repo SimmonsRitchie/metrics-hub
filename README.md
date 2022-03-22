@@ -1,6 +1,6 @@
 # Metrics Hub
 
-**metrics-hub** is a toy example of an OOR data pipeline. It makes use of the [factory design](https://refactoring.guru/design-patterns/factory-method) pattern.
+**metrics-hub** is a toy example of an OOP data pipeline. It makes use of the [factory design](https://refactoring.guru/design-patterns/factory-method) pattern.
 
 ## Install
 Open the terminal. Clone this project.
