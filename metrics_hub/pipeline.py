@@ -62,10 +62,7 @@ class Pipeline(ABC):
     def handle_error(self, e):
         print("Error:", e)
         # add other error handling here if needed, eg. slack notification
-        return {
-            'name': self.name,
-            'error': str(e),
-        }
+        raise e
 
     def start(self):
         try:
@@ -93,8 +90,7 @@ class SalesforcePipeline(Pipeline):
 
     def fetch(self):
         print(f"Fetching data from {self.name}...")
-        # simulate error, so we can test error handling
-        raise Exception("Something went wrong")
+        return DUMMY_SALESFORCE_DATA
 
     def transform(self, data):
         print(f"Transforming {self.name} data...")

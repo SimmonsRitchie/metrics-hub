@@ -1,9 +1,9 @@
-from oor_design_patterns.factory import client_code, ChristmasCreator, HalloweenCreator
+from metrics_hub.metrics_hub import MetricsHub
 
 
 def main():
-
-    client_code(HalloweenCreator, "Regibald")
+    m = MetricsHub()
+    m.start()
 
 
 if __name__ == "__main__":

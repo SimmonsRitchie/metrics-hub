@@ -1,4 +1,4 @@
-from pipeline import MailchimpPipeline, SalesforcePipeline, MailgunPipeline
+from .pipeline import MailchimpPipeline, SalesforcePipeline, MailgunPipeline
 
 
 class MetricsHub():
@@ -13,10 +13,11 @@ class MetricsHub():
     def start(self):
         for pipeline in self.pipelines:
             new_pipeline = pipeline()
-            error_report = new_pipeline.start()
-            if error_report:
+            try: 
+                new_pipeline.start()
+            except Exception as e:
                 print("Adding error report to list...")
-                self.error_reports.append(error_report)
+                self.error_reports.append(e)
         if len(self.error_reports) > 0:
             print(
                 f"{len(self.error_reports)} of {len(self.pipelines)} pipelines failed")
@@ -27,9 +28,6 @@ class MetricsHub():
         print("All pipelines ran successfully")
 
 
-def main():
-    m = MetricsHub()
-    m.start()
 
 
 if __name__ == "__main__":
